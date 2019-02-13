@@ -12,11 +12,15 @@ export default class TodoForm extends React.Component {
 		this.setState({ todoInputValue: event.target.value });
 	};
 
+	AddTodoButtonClick = () => {
+		this.props.AddTodo(this.state.todoInputValue);
+	};
+
 	render() {
 		return (
 			<div>
 				<input type="text" placeholder="...todo" value={this.state.todoInputValue} onChange={this.ChangeHandler} />
-				<button>Add todo</button>
+				<button onClick={this.AddTodoButtonClick}>Add todo</button>
 				<button>Clear completed</button>
 			</div>
 		);
