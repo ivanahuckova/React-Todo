@@ -1,5 +1,6 @@
 import React from "react";
 import Todo from "./components/TodoComponents/Todo.jsx";
+import TodoForm from "./components/TodoComponents/TodoForm.jsx";
 
 class App extends React.Component {
 	constructor(props) {
@@ -26,6 +27,7 @@ class App extends React.Component {
 			<div>
 				<h2>Welcome to your Todo App!</h2>
 				<Todo todos={todos} />
+				<TodoForm />
 			</div>
 		);
 	}
