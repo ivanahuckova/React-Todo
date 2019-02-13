@@ -21,12 +21,17 @@ class TodoList extends React.Component {
 		};
 	}
 
+	AddTodo = todoName => {
+		this.setState(state => ({
+			todos: state.todos.concat({ task: todoName, id: "500", completed: false })
+		}));
+	};
 	render() {
 		const { todos } = this.state;
 		return (
 			<div>
 				<Todo todos={todos} />
-				<TodoForm />
+				<TodoForm AddTodo={this.AddTodo} />
 			</div>
 		);
 	}
