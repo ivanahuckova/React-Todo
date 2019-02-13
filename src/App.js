@@ -21,6 +21,14 @@ class App extends React.Component {
 		};
 	}
 
+	// ChangeCompletedState = todoid => {
+	// 	let copyList = this.state.todos.map((item, index) => {
+	// 		if (index === todoid) {
+	// 			item.completed = !item.completed;
+	// 		}
+	// 	});
+	// };
+
 	AddTodo = todoName => {
 		this.setState(state => ({
 			todos: state.todos.concat({ task: todoName, id: Date.now(), completed: false })
@@ -31,7 +39,7 @@ class App extends React.Component {
 		return (
 			<div>
 				<h2>Welcome to your Todo App!</h2>
-				<TodoList todos={todos} />
+				<TodoList todos={todos} ChangeCompletedState={this.ChangeCompletedState} />
 				<TodoForm AddTodo={this.AddTodo} />
 			</div>
 		);
