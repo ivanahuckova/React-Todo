@@ -1,6 +1,7 @@
 import React from "react";
 import TodoList from "./components/TodoComponents/TodoList";
 import TodoForm from "./components/TodoComponents/TodoForm";
+import "./App.css";
 
 class App extends React.Component {
 	constructor(props) {
@@ -21,26 +22,25 @@ class App extends React.Component {
 		};
 	}
 
-	// ChangeCompletedState = todoid => {
-	// 	let copyList = this.state.todos.map((item, index) => {
-	// 		if (index === todoid) {
-	// 			item.completed = !item.completed;
-	// 		}
-	// 	});
-	// };
-
 	AddTodo = todoName => {
 		this.setState(state => ({
 			todos: state.todos.concat({ task: todoName, id: Date.now(), completed: false })
 		}));
 	};
+
+	// ToggleCompleted = () => {
+	// 	this.setState(state => ({ state.todos.completed: !state.todos.completed.completed }));
+	//   };
+
 	render() {
 		const { todos } = this.state;
 		return (
-			<div>
-				<h2>Welcome to your Todo App!</h2>
-				<TodoList todos={todos} ChangeCompletedState={this.ChangeCompletedState} />
-				<TodoForm AddTodo={this.AddTodo} />
+			<div className="environment-container">
+				<div className="todo-container">
+					<h2>Welcome to your Todo App!</h2>
+					<TodoList todos={todos} />
+					<TodoForm AddTodo={this.AddTodo} />
+				</div>
 			</div>
 		);
 	}
